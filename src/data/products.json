@@ -1,0 +1,676 @@
+[
+	{
+		"id": "shoe-001",
+		"name": "Adidas Runner Pro X",
+		"brand": "Adidas",
+		"category": "running",
+		"gender": "unisex",
+		"price": 119.99,
+		"currency": "USD",
+		"images": [
+			"/img/adidas/runner-pro-x/main.jpg",
+			"/img/adidas/runner-pro-x/side.jpg",
+			"/img/adidas/runner-pro-x/top.jpg"
+		],
+		"thumbnail": "/img/adidas/runner-pro-x/thumb.jpg",
+		"sizes": [38, 39, 40, 41, 42, 43, 44],
+		"colors": [
+			{ "name": "Negro / Blanco", "hex": "#111111" },
+			{ "name": "Azul Marino", "hex": "#0b2c52" }
+		],
+		"stock": 42,
+		"rating": 4.6,
+		"description": "Zapatilla de running ligera con amortiguación reactiva y malla transpirable.",
+		"tags": ["running", "ligero", "amortiguacion"]
+	},
+	{
+		"id": "shoe-002",
+		"name": "Nike Air Velocity",
+		"brand": "Nike",
+		"category": "running",
+		"gender": "men",
+		"price": 129.5,
+		"currency": "USD",
+		"images": [
+			"/img/nike/air-velocity/main.jpg",
+			"/img/nike/air-velocity/heel.jpg"
+		],
+		"thumbnail": "/img/nike/air-velocity/thumb.jpg",
+		"sizes": [40, 41, 42, 43, 44, 45],
+		"colors": [
+			{ "name": "Rojo / Blanco", "hex": "#c8102e" },
+			{ "name": "Gris", "hex": "#555555" }
+		],
+		"stock": 33,
+		"rating": 4.4,
+		"description": "Soporte estable para tiradas largas con cápsula Air optimizada.",
+		"tags": ["air", "soporte", "distancia"]
+	},
+	{
+		"id": "shoe-003",
+		"name": "Puma Street Classic",
+		"brand": "Puma",
+		"category": "casual",
+		"gender": "unisex",
+		"price": 89.0,
+		"currency": "USD",
+		"images": [
+			"/img/puma/street-classic/main.jpg"
+		],
+		"thumbnail": "/img/puma/street-classic/thumb.jpg",
+		"sizes": [36, 37, 38, 39, 40, 41, 42, 43],
+		"colors": [
+			{ "name": "Blanco", "hex": "#ffffff" },
+			{ "name": "Negro", "hex": "#000000" }
+		],
+		"stock": 57,
+		"rating": 4.2,
+		"description": "Estilo urbano clásico con plantilla cómoda para uso diario.",
+		"tags": ["casual", "urbano"]
+	},
+	{
+		"id": "shoe-004",
+		"name": "New Balance FoamRide 880",
+		"brand": "New Balance",
+		"category": "running",
+		"gender": "women",
+		"price": 134.99,
+		"currency": "USD",
+		"images": [
+			"/img/nb/foamride-880/main.jpg",
+			"/img/nb/foamride-880/sole.jpg"
+		],
+		"thumbnail": "/img/nb/foamride-880/thumb.jpg",
+		"sizes": [36, 37, 38, 39, 40, 41],
+		"colors": [
+			{ "name": "Lila", "hex": "#b58ad9" },
+			{ "name": "Gris Claro", "hex": "#d0d0d0" }
+		],
+		"stock": 26,
+		"rating": 4.7,
+		"description": "Amortiguación suave con retorno de energía para corredoras neutras.",
+		"tags": ["foam", "neutro", "amortiguacion"]
+	},
+	{
+		"id": "shoe-005",
+		"name": "Reebok HIIT Burst",
+		"brand": "Reebok",
+		"category": "training",
+		"gender": "unisex",
+		"price": 102.0,
+		"currency": "USD",
+		"images": ["/img/reebok/hiit-burst/main.jpg"],
+		"thumbnail": "/img/reebok/hiit-burst/thumb.jpg",
+		"sizes": [38, 39, 40, 41, 42, 43, 44],
+		"colors": [
+			{ "name": "Verde Lima", "hex": "#7ecb20" },
+			{ "name": "Negro", "hex": "#000000" }
+		],
+		"stock": 18,
+		"rating": 4.1,
+		"description": "Estabilidad lateral y tracción para entrenamientos de alta intensidad.",
+		"tags": ["hiit", "training", "traccion"]
+	},
+	{
+		"id": "shoe-006",
+		"name": "Asics Gel Nimbus 26",
+		"brand": "Asics",
+		"category": "running",
+		"gender": "men",
+		"price": 159.99,
+		"currency": "USD",
+		"images": [
+			"/img/asics/gel-nimbus-26/main.jpg",
+			"/img/asics/gel-nimbus-26/cushion.jpg"
+		],
+		"thumbnail": "/img/asics/gel-nimbus-26/thumb.jpg",
+		"sizes": [40, 41, 42, 43, 44, 45, 46],
+		"colors": [
+			{ "name": "Azul / Naranja", "hex": "#004f9e" },
+			{ "name": "Azul Oscuro", "hex": "#002b55" }
+		],
+		"stock": 35,
+		"rating": 4.8,
+		"description": "Máxima amortiguación GEL con transiciones suaves para largas distancias.",
+		"tags": ["gel", "larga distancia", "premium"]
+	},
+	{
+		"id": "shoe-007",
+		"name": "Adidas Court Retro 84",
+		"brand": "Adidas",
+		"category": "casual",
+		"gender": "unisex",
+		"price": 97.5,
+		"currency": "USD",
+		"images": ["/img/adidas/court-retro-84/main.jpg"],
+		"thumbnail": "/img/adidas/court-retro-84/thumb.jpg",
+		"sizes": [36, 37, 38, 39, 40, 41, 42, 43],
+		"colors": [
+			{ "name": "Blanco / Verde", "hex": "#ffffff" },
+			{ "name": "Crema", "hex": "#f6f0e2" }
+		],
+		"stock": 64,
+		"rating": 4.5,
+		"description": "Inspiración vintage con materiales suaves y suela de caucho clásico.",
+		"tags": ["retro", "vintage", "casual"]
+	},
+	{
+		"id": "shoe-008",
+		"name": "Nike Dunk Street",
+		"brand": "Nike",
+		"category": "casual",
+		"gender": "unisex",
+		"price": 139.0,
+		"currency": "USD",
+		"images": ["/img/nike/dunk-street/main.jpg"],
+		"thumbnail": "/img/nike/dunk-street/thumb.jpg",
+		"sizes": [37, 38, 39, 40, 41, 42, 43, 44],
+		"colors": [
+			{ "name": "Azul Royal", "hex": "#1357c8" },
+			{ "name": "Blanco", "hex": "#ffffff" }
+		],
+		"stock": 22,
+		"rating": 4.3,
+		"description": "Estética urbana con cuero resistente y soporte en tobillo.",
+		"tags": ["street", "cuero", "clasico"]
+	},
+	{
+		"id": "shoe-009",
+		"name": "Vans Old Skool Canvas",
+		"brand": "Vans",
+		"category": "skate",
+		"gender": "unisex",
+		"price": 74.99,
+		"currency": "USD",
+		"images": ["/img/vans/old-skool-canvas/main.jpg"],
+		"thumbnail": "/img/vans/old-skool-canvas/thumb.jpg",
+		"sizes": [38, 39, 40, 41, 42, 43, 44, 45],
+		"colors": [
+			{ "name": "Negro / Blanco", "hex": "#111111" },
+			{ "name": "Azul Marino", "hex": "#0b2c52" }
+		],
+		"stock": 90,
+		"rating": 4.6,
+		"description": "Clásico para skate con suela waffle adherente y lona durable.",
+		"tags": ["skate", "clásico", "canvas"]
+	},
+	{
+		"id": "shoe-010",
+		"name": "Converse Chuck 70 High",
+		"brand": "Converse",
+		"category": "casual",
+		"gender": "unisex",
+		"price": 92.0,
+		"currency": "USD",
+		"images": ["/img/converse/chuck70-high/main.jpg"],
+		"thumbnail": "/img/converse/chuck70-high/thumb.jpg",
+		"sizes": [36, 37, 38, 39, 40, 41, 42, 43],
+		"colors": [
+			{ "name": "Marfil", "hex": "#f5f0e6" },
+			{ "name": "Negro", "hex": "#000000" }
+		],
+		"stock": 51,
+		"rating": 4.4,
+		"description": "La versión mejorada con materiales premium y mayor durabilidad.",
+		"tags": ["iconico", "lona"]
+	},
+	{
+		"id": "shoe-011",
+		"name": "Salomon Trail Grip X2",
+		"brand": "Salomon",
+		"category": "trail",
+		"gender": "men",
+		"price": 145.0,
+		"currency": "USD",
+		"images": ["/img/salomon/trail-grip-x2/main.jpg"],
+		"thumbnail": "/img/salomon/trail-grip-x2/thumb.jpg",
+		"sizes": [40, 41, 42, 43, 44, 45],
+		"colors": [
+			{ "name": "Naranja / Gris", "hex": "#ff6a00" },
+			{ "name": "Gris Oscuro", "hex": "#333333" }
+		],
+		"stock": 28,
+		"rating": 4.7,
+		"description": "Agarre agresivo y membrana resistente al agua para terrenos técnicos.",
+		"tags": ["trail", "agarre", "water-resistant"]
+	},
+	{
+		"id": "shoe-012",
+		"name": "Mizuno Wave Rider Neo",
+		"brand": "Mizuno",
+		"category": "running",
+		"gender": "men",
+		"price": 148.99,
+		"currency": "USD",
+		"images": ["/img/mizuno/wave-rider-neo/main.jpg"],
+		"thumbnail": "/img/mizuno/wave-rider-neo/thumb.jpg",
+		"sizes": [40, 41, 42, 43, 44],
+		"colors": [
+			{ "name": "Azul / Verde", "hex": "#004f9e" },
+			{ "name": "Blanco", "hex": "#ffffff" }
+		],
+		"stock": 19,
+		"rating": 4.5,
+		"description": "Placa Wave con equilibrio entre suavidad y respuesta para ritmos moderados.",
+		"tags": ["wave", "respuesta"]
+	},
+	{
+		"id": "shoe-013",
+		"name": "Hoka One One Clifton 9",
+		"brand": "Hoka",
+		"category": "running",
+		"gender": "women",
+		"price": 154.0,
+		"currency": "USD",
+		"images": ["/img/hoka/clifton-9/main.jpg"],
+		"thumbnail": "/img/hoka/clifton-9/thumb.jpg",
+		"sizes": [36, 37, 38, 39, 40, 41],
+		"colors": [
+			{ "name": "Coral", "hex": "#ff6f61" },
+			{ "name": "Blanco", "hex": "#ffffff" }
+		],
+		"stock": 23,
+		"rating": 4.8,
+		"description": "Amortiguación maximalista ligera para rodajes diarios cómodos.",
+		"tags": ["maximalista", "ligera"]
+	},
+	{
+		"id": "shoe-014",
+		"name": "Brooks Ghost 16",
+		"brand": "Brooks",
+		"category": "running",
+		"gender": "unisex",
+		"price": 142.5,
+		"currency": "USD",
+		"images": ["/img/brooks/ghost-16/main.jpg"],
+		"thumbnail": "/img/brooks/ghost-16/thumb.jpg",
+		"sizes": [38, 39, 40, 41, 42, 43, 44],
+		"colors": [
+			{ "name": "Negro / Gris", "hex": "#222222" },
+			{ "name": "Azul", "hex": "#004f9e" }
+		],
+		"stock": 31,
+		"rating": 4.6,
+		"description": "Transiciones suaves con amortiguación equilibrada DNA Loft v3.",
+		"tags": ["rodajes", "equilibrada"]
+	},
+	{
+		"id": "shoe-015",
+		"name": "Nike Metcon 9",
+		"brand": "Nike",
+		"category": "training",
+		"gender": "unisex",
+		"price": 149.99,
+		"currency": "USD",
+		"images": ["/img/nike/metcon-9/main.jpg"],
+		"thumbnail": "/img/nike/metcon-9/thumb.jpg",
+		"sizes": [38, 39, 40, 41, 42, 43, 44],
+		"colors": [
+			{ "name": "Negro / Dorado", "hex": "#111111" },
+			{ "name": "Gris", "hex": "#666666" }
+		],
+		"stock": 17,
+		"rating": 4.3,
+		"description": "Estabilidad para levantamientos y tracción en cuerda mejorada.",
+		"tags": ["crossfit", "estabilidad", "levantamiento"]
+	},
+	{
+		"id": "shoe-016",
+		"name": "Under Armour Charged Impulse",
+		"brand": "Under Armour",
+		"category": "running",
+		"gender": "men",
+		"price": 110.0,
+		"currency": "USD",
+		"images": ["/img/ua/charged-impulse/main.jpg"],
+		"thumbnail": "/img/ua/charged-impulse/thumb.jpg",
+		"sizes": [40, 41, 42, 43, 44, 45],
+		"colors": [
+			{ "name": "Azul Oscuro", "hex": "#002b55" },
+			{ "name": "Gris", "hex": "#555555" }
+		],
+		"stock": 29,
+		"rating": 4.2,
+		"description": "Ligereza y respuesta para entrenamientos diarios moderados.",
+		"tags": ["ligera", "rapida"]
+	},
+	{
+		"id": "shoe-017",
+		"name": "Jordan Flight Heritage",
+		"brand": "Jordan",
+		"category": "basketball",
+		"gender": "men",
+		"price": 168.0,
+		"currency": "USD",
+		"images": ["/img/jordan/flight-heritage/main.jpg"],
+		"thumbnail": "/img/jordan/flight-heritage/thumb.jpg",
+		"sizes": [41, 42, 43, 44, 45, 46],
+		"colors": [
+			{ "name": "Blanco / Negro / Rojo", "hex": "#ffffff" },
+			{ "name": "Negro", "hex": "#000000" }
+		],
+		"stock": 14,
+		"rating": 4.5,
+		"description": "Estética retro con soporte en el tobillo y amortiguación aerodinámica.",
+		"tags": ["basket", "retro", "soporte"]
+	},
+	{
+		"id": "shoe-018",
+		"name": "Adidas Ultraboost Light",
+		"brand": "Adidas",
+		"category": "running",
+		"gender": "unisex",
+		"price": 189.99,
+		"currency": "USD",
+		"images": ["/img/adidas/ultraboost-light/main.jpg"],
+		"thumbnail": "/img/adidas/ultraboost-light/thumb.jpg",
+		"sizes": [38, 39, 40, 41, 42, 43, 44],
+		"colors": [
+			{ "name": "Blanco / Multicolor", "hex": "#ffffff" },
+			{ "name": "Negro", "hex": "#000000" }
+		],
+		"stock": 21,
+		"rating": 4.7,
+		"description": "Boost optimizado con menor peso y ajuste tipo calcetín.",
+		"tags": ["boost", "energy return", "premium"]
+	},
+	{
+		"id": "shoe-019",
+		"name": "Nike Pegasus 42",
+		"brand": "Nike",
+		"category": "running",
+		"gender": "unisex",
+		"price": 139.99,
+		"currency": "USD",
+		"images": ["/img/nike/pegasus-42/main.jpg"],
+		"thumbnail": "/img/nike/pegasus-42/thumb.jpg",
+		"sizes": [37, 38, 39, 40, 41, 42, 43, 44],
+		"colors": [
+			{ "name": "Celeste / Plata", "hex": "#8ec6e8" },
+			{ "name": "Azul Marino", "hex": "#0b2c52" }
+		],
+		"stock": 38,
+		"rating": 4.5,
+		"description": "Versátil para todo tipo de entrenos con espuma reactiva.",
+		"tags": ["versatil", "diaria"]
+	},
+	{
+		"id": "shoe-020",
+		"name": "Saucony Endorphin Speed 4",
+		"brand": "Saucony",
+		"category": "running",
+		"gender": "men",
+		"price": 199.0,
+		"currency": "USD",
+		"images": ["/img/saucony/endorphin-speed-4/main.jpg"],
+		"thumbnail": "/img/saucony/endorphin-speed-4/thumb.jpg",
+		"sizes": [40, 41, 42, 43, 44, 45],
+		"colors": [
+			{ "name": "Verde Fluor", "hex": "#8bec4f" },
+			{ "name": "Blanco", "hex": "#ffffff" }
+		],
+		"stock": 12,
+		"rating": 4.9,
+		"description": "Placa de nylon flexible y espuma PWRRUN PB para entrenos rápidos.",
+		"tags": ["rapida", "placa"]
+	},
+	{
+		"id": "shoe-021",
+		"name": "On Cloudswift 3",
+		"brand": "On Running",
+		"category": "running",
+		"gender": "women",
+		"price": 169.0,
+		"currency": "USD",
+		"images": ["/img/on/cloudswift-3/main.jpg"],
+		"thumbnail": "/img/on/cloudswift-3/thumb.jpg",
+		"sizes": [36, 37, 38, 39, 40, 41],
+		"colors": [
+			{ "name": "Arena", "hex": "#d9c9b2" },
+			{ "name": "Blanco", "hex": "#ffffff" }
+		],
+		"stock": 16,
+		"rating": 4.4,
+		"description": "Helion superespuma con estructura CloudTec para impacto suave.",
+		"tags": ["cloud", "helion"]
+	},
+	{
+		"id": "shoe-022",
+		"name": "Timberland Field Boot Low",
+		"brand": "Timberland",
+		"category": "outdoor",
+		"gender": "men",
+		"price": 158.0,
+		"currency": "USD",
+		"images": ["/img/timberland/field-boot-low/main.jpg"],
+		"thumbnail": "/img/timberland/field-boot-low/thumb.jpg",
+		"sizes": [41, 42, 43, 44, 45],
+		"colors": [
+			{ "name": "Marrón", "hex": "#7b4f27" },
+			{ "name": "Marrón Claro", "hex": "#b48242" }
+		],
+		"stock": 11,
+		"rating": 4.3,
+		"description": "Bota baja resistente con paneles de nylon y suela tracción montaña.",
+		"tags": ["bota", "outdoor"]
+	},
+	{
+		"id": "shoe-023",
+		"name": "Merrell Moab Speed GTX",
+		"brand": "Merrell",
+		"category": "trail",
+		"gender": "unisex",
+		"price": 165.0,
+		"currency": "USD",
+		"images": ["/img/merrell/moab-speed-gtx/main.jpg"],
+		"thumbnail": "/img/merrell/moab-speed-gtx/thumb.jpg",
+		"sizes": [38, 39, 40, 41, 42, 43, 44],
+		"colors": [
+			{ "name": "Gris / Verde", "hex": "#6d7f6a" },
+			{ "name": "Negro", "hex": "#000000" }
+		],
+		"stock": 20,
+		"rating": 4.6,
+		"description": "Membrana Gore-Tex y suela Vibram para condiciones mixtas de trail.",
+		"tags": ["gore-tex", "vibram", "trail"]
+	},
+	{
+		"id": "shoe-024",
+		"name": "Crocs LiteRide 360",
+		"brand": "Crocs",
+		"category": "sandals",
+		"gender": "unisex",
+		"price": 64.0,
+		"currency": "USD",
+		"images": ["/img/crocs/literide-360/main.jpg"],
+		"thumbnail": "/img/crocs/literide-360/thumb.jpg",
+		"sizes": [37, 38, 39, 40, 41, 42, 43],
+		"colors": [
+			{ "name": "Gris Claro", "hex": "#d0d0d0" },
+			{ "name": "Blanco", "hex": "#ffffff" }
+		],
+		"stock": 47,
+		"rating": 4.1,
+		"description": "Espuma LiteRide para comodidad ultraligera en el día a día.",
+		"tags": ["sandalia", "ligera"]
+	},
+	{
+		"id": "shoe-025",
+		"name": "Birkenstock Arizona Soft",
+		"brand": "Birkenstock",
+		"category": "sandals",
+		"gender": "unisex",
+		"price": 120.0,
+		"currency": "USD",
+		"images": ["/img/birkenstock/arizona-soft/main.jpg"],
+		"thumbnail": "/img/birkenstock/arizona-soft/thumb.jpg",
+		"sizes": [36, 37, 38, 39, 40, 41, 42, 43],
+		"colors": [
+			{ "name": "Marrón Suave", "hex": "#a5713f" },
+			{ "name": "Arena", "hex": "#d5c2a1" }
+		],
+		"stock": 32,
+		"rating": 4.5,
+		"description": "Plantilla anatómica con capa extra de espuma para confort prolongado.",
+		"tags": ["sandalia", "confort"]
+	},
+	{
+		"id": "shoe-026",
+		"name": "Clarks Desert Boot",
+		"brand": "Clarks",
+		"category": "casual",
+		"gender": "men",
+		"price": 135.0,
+		"currency": "USD",
+		"images": ["/img/clarks/desert-boot/main.jpg"],
+		"thumbnail": "/img/clarks/desert-boot/thumb.jpg",
+		"sizes": [40, 41, 42, 43, 44, 45],
+		"colors": [
+			{ "name": "Arena", "hex": "#d5c2a1" },
+			{ "name": "Marrón", "hex": "#7b4f27" }
+		],
+		"stock": 24,
+		"rating": 4.4,
+		"description": "Clásica bota de ante con suela crepé para look casual elegante.",
+		"tags": ["bota", "ante", "clasico"]
+	},
+	{
+		"id": "shoe-027",
+		"name": "Dr. Martens 1461 Mono",
+		"brand": "Dr. Martens",
+		"category": "casual",
+		"gender": "unisex",
+		"price": 160.0,
+		"currency": "USD",
+		"images": ["/img/drmartens/1461-mono/main.jpg"],
+		"thumbnail": "/img/drmartens/1461-mono/thumb.jpg",
+		"sizes": [38, 39, 40, 41, 42, 43, 44],
+		"colors": [
+			{ "name": "Negro", "hex": "#000000" }
+		],
+		"stock": 30,
+		"rating": 4.6,
+		"description": "Piel lisa monocromática con suela AirWair resistente al aceite.",
+		"tags": ["piel", "durable"]
+	},
+	{
+		"id": "shoe-028",
+		"name": "Adidas Predator Elite FG",
+		"brand": "Adidas",
+		"category": "soccer",
+		"gender": "unisex",
+		"price": 259.0,
+		"currency": "USD",
+		"images": ["/img/adidas/predator-elite-fg/main.jpg"],
+		"thumbnail": "/img/adidas/predator-elite-fg/thumb.jpg",
+		"sizes": [38, 39, 40, 41, 42, 43, 44, 45],
+		"colors": [
+			{ "name": "Negro / Rojo", "hex": "#111111" },
+			{ "name": "Rojo", "hex": "#c8102e" }
+		],
+		"stock": 9,
+		"rating": 4.9,
+		"description": "Control mejorado con textura de precisión y placa ligera para césped natural.",
+		"tags": ["futbol", "control", "elite"]
+	},
+	{
+		"id": "shoe-029",
+		"name": "Nike Mercurial Vapor 16",
+		"brand": "Nike",
+		"category": "soccer",
+		"gender": "men",
+		"price": 249.99,
+		"currency": "USD",
+		"images": ["/img/nike/mercurial-vapor-16/main.jpg"],
+		"thumbnail": "/img/nike/mercurial-vapor-16/thumb.jpg",
+		"sizes": [40, 41, 42, 43, 44, 45],
+		"colors": [
+			{ "name": "Naranja Fluor", "hex": "#ff6a00" },
+			{ "name": "Blanco", "hex": "#ffffff" }
+		],
+		"stock": 13,
+		"rating": 4.8,
+		"description": "Velocidad explosiva con upper Vaporposite+ y placa aerodinámica.",
+		"tags": ["velocidad", "ligera"]
+	},
+	{
+		"id": "shoe-030",
+		"name": "Mizuno Morelia Neo IV",
+		"brand": "Mizuno",
+		"category": "soccer",
+		"gender": "unisex",
+		"price": 210.0,
+		"currency": "USD",
+		"images": ["/img/mizuno/morelia-neo-iv/main.jpg"],
+		"thumbnail": "/img/mizuno/morelia-neo-iv/thumb.jpg",
+		"sizes": [38, 39, 40, 41, 42, 43, 44],
+		"colors": [
+			{ "name": "Blanco / Dorado", "hex": "#ffffff" },
+			{ "name": "Dorado", "hex": "#d4af37" }
+		],
+		"stock": 7,
+		"rating": 4.7,
+		"description": "Cuero premium K-leather y construcción ligera para toque natural.",
+		"tags": ["toque", "cuero"]
+	},
+	{
+		"id": "shoe-031",
+		"name": "Asics MatControl 3",
+		"brand": "Asics",
+		"category": "wrestling",
+		"gender": "unisex",
+		"price": 98.0,
+		"currency": "USD",
+		"images": ["/img/asics/matcontrol-3/main.jpg"],
+		"thumbnail": "/img/asics/matcontrol-3/thumb.jpg",
+		"sizes": [38, 39, 40, 41, 42, 43],
+		"colors": [
+			{ "name": "Negro / Dorado", "hex": "#111111" },
+			{ "name": "Gris", "hex": "#555555" }
+		],
+		"stock": 15,
+		"rating": 4.3,
+		"description": "Tracción multidireccional y soporte en el mediopié para lucha olímpica.",
+		"tags": ["lucha", "traccion"]
+	},
+	{
+		"id": "shoe-032",
+		"name": "Nike SB Zoom Janoski 3",
+		"brand": "Nike",
+		"category": "skate",
+		"gender": "unisex",
+		"price": 95.0,
+		"currency": "USD",
+		"images": ["/img/nike/sb-janoski-3/main.jpg"],
+		"thumbnail": "/img/nike/sb-janoski-3/thumb.jpg",
+		"sizes": [38, 39, 40, 41, 42, 43, 44],
+		"colors": [
+			{ "name": "Verde Oliva", "hex": "#586b39" },
+			{ "name": "Beige", "hex": "#d5c2a1" }
+		],
+		"stock": 27,
+		"rating": 4.5,
+		"description": "Sensación de tabla mejorada y unidad Zoom Air en el talón.",
+		"tags": ["skate", "zoom air"]
+	},
+	{
+		"id": "shoe-033",
+		"name": "Adidas Terrex Swift R3 GTX",
+		"brand": "Adidas",
+		"category": "trail",
+		"gender": "unisex",
+		"price": 180.0,
+		"currency": "USD",
+		"images": ["/img/adidas/terrex-swift-r3-gtx/main.jpg"],
+		"thumbnail": "/img/adidas/terrex-swift-r3-gtx/thumb.jpg",
+		"sizes": [38, 39, 40, 41, 42, 43, 44],
+		"colors": [
+			{ "name": "Negro / Gris", "hex": "#222222" },
+			{ "name": "Azul", "hex": "#004f9e" }
+		],
+		"stock": 18,
+		"rating": 4.6,
+		"description": "Membrana Gore-Tex y suela Continental para hiking técnico rápido.",
+		"tags": ["gore-tex", "hiking", "continental"]
+	}
+]
