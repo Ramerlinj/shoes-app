@@ -8,11 +8,11 @@
 		"price": 119.99,
 		"currency": "USD",
 		"images": [
-			"/img/adidas/runner-pro-x/main.jpg",
-			"/img/adidas/runner-pro-x/side.jpg",
-			"/img/adidas/runner-pro-x/top.jpg"
+			"https://assets.adidas.com/images/w_600,f_auto,q_auto/c2f7880134a64c77a8a1afc60125524a_9366/Tenis_para_Correr_Ultraboost_22_Negro_GX5915_01_standard.jpg",
+			"https://assets.adidas.com/images/w_600,f_auto,q_auto/c2f7880134a64c77a8a1afc60125524a_9366/Tenis_para_Correr_Ultraboost_22_Negro_GX5915_04_standard.jpg",
+			"https://assets.adidas.com/images/w_600,f_auto,q_auto/c2f7880134a64c77a8a1afc60125524a_9366/Tenis_para_Correr_Ultraboost_22_Negro_GX5915_02_standard_hover.jpg"
 		],
-		"thumbnail": "/img/adidas/runner-pro-x/thumb.jpg",
+		"thumbnail": "https://assets.adidas.com/images/w_300,f_auto,q_auto/c2f7880134a64c77a8a1afc60125524a_9366/Tenis_para_Correr_Ultraboost_22_Negro_GX5915_01_standard.jpg",
 		"sizes": [38, 39, 40, 41, 42, 43, 44],
 		"colors": [
 			{ "name": "Negro / Blanco", "hex": "#111111" },
@@ -32,10 +32,10 @@
 		"price": 129.5,
 		"currency": "USD",
 		"images": [
-			"/img/nike/air-velocity/main.jpg",
-			"/img/nike/air-velocity/heel.jpg"
+			"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/0c18f2ce-c08b-4b36-9a54-9340269e66d4/air-max-270-zapatillas-HkBWrV.png",
+			"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/05826d5b-3421-4f74-9962-df4c0b8a7c21/air-max-270-zapatillas-HkBWrV.png"
 		],
-		"thumbnail": "/img/nike/air-velocity/thumb.jpg",
+		"thumbnail": "https://static.nike.com/a/images/t_PDP_300_v1/f_auto,q_auto:eco/0c18f2ce-c08b-4b36-9a54-9340269e66d4/air-max-270-zapatillas-HkBWrV.png",
 		"sizes": [40, 41, 42, 43, 44, 45],
 		"colors": [
 			{ "name": "Rojo / Blanco", "hex": "#c8102e" },
@@ -55,9 +55,9 @@
 		"price": 89.0,
 		"currency": "USD",
 		"images": [
-			"/img/puma/street-classic/main.jpg"
+			"https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/374915/11/sv01/fnd/EEA/fmt/png/Suede-Classic-XXI-Sneakers"
 		],
-		"thumbnail": "/img/puma/street-classic/thumb.jpg",
+		"thumbnail": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_300,h_300/global/374915/11/sv01/fnd/EEA/fmt/png/Suede-Classic-XXI-Sneakers",
 		"sizes": [36, 37, 38, 39, 40, 41, 42, 43],
 		"colors": [
 			{ "name": "Blanco", "hex": "#ffffff" },
@@ -77,10 +77,10 @@
 		"price": 134.99,
 		"currency": "USD",
 		"images": [
-			"/img/nb/foamride-880/main.jpg",
-			"/img/nb/foamride-880/sole.jpg"
+			"https://nb.scene7.com/is/image/NB/w880v14_nb_02_i?$pdpflexf2$&wid=440&hei=440",
+			"https://nb.scene7.com/is/image/NB/w880v14_nb_06_i?$pdpflexf2$&wid=440&hei=440"
 		],
-		"thumbnail": "/img/nb/foamride-880/thumb.jpg",
+		"thumbnail": "https://nb.scene7.com/is/image/NB/w880v14_nb_02_i?$pdpflexf2$&wid=300&hei=300",
 		"sizes": [36, 37, 38, 39, 40, 41],
 		"colors": [
 			{ "name": "Lila", "hex": "#b58ad9" },
@@ -99,8 +99,8 @@
 		"gender": "unisex",
 		"price": 102.0,
 		"currency": "USD",
-		"images": ["/img/reebok/hiit-burst/main.jpg"],
-		"thumbnail": "/img/reebok/hiit-burst/thumb.jpg",
+		"images": ["https://assets.reebok.com/images/w_600,f_auto,q_auto/d0c9fb81ecb14ff4b897aef400e3c7a6_9366/Nano_X3_Training_Shoes_Black_GV7767_01_standard.jpg"],
+		"thumbnail": "https://assets.reebok.com/images/w_300,f_auto,q_auto/d0c9fb81ecb14ff4b897aef400e3c7a6_9366/Nano_X3_Training_Shoes_Black_GV7767_01_standard.jpg",
 		"sizes": [38, 39, 40, 41, 42, 43, 44],
 		"colors": [
 			{ "name": "Verde Lima", "hex": "#7ecb20" },
@@ -120,10 +120,10 @@
 		"price": 159.99,
 		"currency": "USD",
 		"images": [
-			"/img/asics/gel-nimbus-26/main.jpg",
-			"/img/asics/gel-nimbus-26/cushion.jpg"
+			"https://images.asics.com/is/image/asics/1011B794_400_SR_RT_GLB?$zoom$",
+			"https://images.asics.com/is/image/asics/1011B794_400_SB_RT_GLB?$zoom$"
 		],
-		"thumbnail": "/img/asics/gel-nimbus-26/thumb.jpg",
+		"thumbnail": "https://images.asics.com/is/image/asics/1011B794_400_SR_RT_GLB?wid=300&hei=300",
 		"sizes": [40, 41, 42, 43, 44, 45, 46],
 		"colors": [
 			{ "name": "Azul / Naranja", "hex": "#004f9e" },
@@ -142,8 +142,8 @@
 		"gender": "unisex",
 		"price": 97.5,
 		"currency": "USD",
-		"images": ["/img/adidas/court-retro-84/main.jpg"],
-		"thumbnail": "/img/adidas/court-retro-84/thumb.jpg",
+		"images": ["https://assets.adidas.com/images/w_600,f_auto,q_auto/1da5ad4bc4a344c3ae67ad8f00f77c6b_9366/GAZELLE_Blanco_BB5498_01_standard.jpg"],
+		"thumbnail": "https://assets.adidas.com/images/w_300,f_auto,q_auto/1da5ad4bc4a344c3ae67ad8f00f77c6b_9366/GAZELLE_Blanco_BB5498_01_standard.jpg",
 		"sizes": [36, 37, 38, 39, 40, 41, 42, 43],
 		"colors": [
 			{ "name": "Blanco / Verde", "hex": "#ffffff" },
@@ -162,8 +162,8 @@
 		"gender": "unisex",
 		"price": 139.0,
 		"currency": "USD",
-		"images": ["/img/nike/dunk-street/main.jpg"],
-		"thumbnail": "/img/nike/dunk-street/thumb.jpg",
+		"images": ["https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/0ef707aa-26b6-4817-94fa-710606713fed/dunk-low-zapatillas-6wKrQl.png"],
+		"thumbnail": "https://static.nike.com/a/images/t_PDP_300_v1/f_auto,q_auto:eco/0ef707aa-26b6-4817-94fa-710606713fed/dunk-low-zapatillas-6wKrQl.png",
 		"sizes": [37, 38, 39, 40, 41, 42, 43, 44],
 		"colors": [
 			{ "name": "Azul Royal", "hex": "#1357c8" },
@@ -182,8 +182,8 @@
 		"gender": "unisex",
 		"price": 74.99,
 		"currency": "USD",
-		"images": ["/img/vans/old-skool-canvas/main.jpg"],
-		"thumbnail": "/img/vans/old-skool-canvas/thumb.jpg",
+		"images": ["https://images.vans.com/is/image/Vans/VN000D3HY28-HERO?wid=1600&hei=1984&fmt=jpeg&qlt=90&resMode=sharp2&op_usm=0.9,1.7,8,0"],
+		"thumbnail": "https://images.vans.com/is/image/Vans/VN000D3HY28-HERO?wid=300&hei=372&fmt=jpeg&qlt=90&resMode=sharp2&op_usm=0.9,1.7,8,0",
 		"sizes": [38, 39, 40, 41, 42, 43, 44, 45],
 		"colors": [
 			{ "name": "Negro / Blanco", "hex": "#111111" },
@@ -202,8 +202,8 @@
 		"gender": "unisex",
 		"price": 92.0,
 		"currency": "USD",
-		"images": ["/img/converse/chuck70-high/main.jpg"],
-		"thumbnail": "/img/converse/chuck70-high/thumb.jpg",
+		"images": ["https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dw5b5b9baf/images/a_107/162050C_A_107X1.jpg"],
+		"thumbnail": "https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dw5b5b9baf/images/a_107/162050C_A_107X1.jpg?sw=300",
 		"sizes": [36, 37, 38, 39, 40, 41, 42, 43],
 		"colors": [
 			{ "name": "Marfil", "hex": "#f5f0e6" },
@@ -222,8 +222,8 @@
 		"gender": "men",
 		"price": 145.0,
 		"currency": "USD",
-		"images": ["/img/salomon/trail-grip-x2/main.jpg"],
-		"thumbnail": "/img/salomon/trail-grip-x2/thumb.jpg",
+		"images": ["https://www.salomon.com/sites/default/files/styles/product_zoomed_1440_q90/public/2024-03/L47460300_0.jpg"],
+		"thumbnail": "https://www.salomon.com/sites/default/files/styles/product_card_400x400/public/2024-03/L47460300_0.jpg",
 		"sizes": [40, 41, 42, 43, 44, 45],
 		"colors": [
 			{ "name": "Naranja / Gris", "hex": "#ff6a00" },
@@ -242,8 +242,8 @@
 		"gender": "men",
 		"price": 148.99,
 		"currency": "USD",
-		"images": ["/img/mizuno/wave-rider-neo/main.jpg"],
-		"thumbnail": "/img/mizuno/wave-rider-neo/thumb.jpg",
+		"images": ["https://emea.mizuno.com/dw/image/v2/BCHF_PRD/on/demandware.static/-/Sites-mizuno-master-catalog/default/dwf0fb9f4a/images/productimages/J1GC223427_1.jpg"],
+		"thumbnail": "https://emea.mizuno.com/dw/image/v2/BCHF_PRD/on/demandware.static/-/Sites-mizuno-master-catalog/default/dwf0fb9f4a/images/productimages/J1GC223427_1.jpg?sw=300",
 		"sizes": [40, 41, 42, 43, 44],
 		"colors": [
 			{ "name": "Azul / Verde", "hex": "#004f9e" },
@@ -262,8 +262,8 @@
 		"gender": "women",
 		"price": 154.0,
 		"currency": "USD",
-		"images": ["/img/hoka/clifton-9/main.jpg"],
-		"thumbnail": "/img/hoka/clifton-9/thumb.jpg",
+		"images": ["https://www.hoka.com/dw/image/v2/BFNH_PRD/on/demandware.static/-/Sites-hoka-master-catalog/default/dw6f2d4925/images/hi-res/1127896_FGFP_1.jpg"],
+		"thumbnail": "https://www.hoka.com/dw/image/v2/BFNH_PRD/on/demandware.static/-/Sites-hoka-master-catalog/default/dw6f2d4925/images/hi-res/1127896_FGFP_1.jpg?sw=300",
 		"sizes": [36, 37, 38, 39, 40, 41],
 		"colors": [
 			{ "name": "Coral", "hex": "#ff6f61" },
