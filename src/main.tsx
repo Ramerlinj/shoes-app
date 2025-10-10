@@ -4,7 +4,7 @@ import HomePage from './app/home/page'
 import './index.css'
 import Header from './components/header/header'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-
+import ProductsPage from './app/products/page'
 
 
 createRoot(document.getElementById('root')!).render(
@@ -13,6 +13,7 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<HomePage/>}/>
+      <Route path='/products' element={<ProductsPage/>}/>
     </Routes>
 
     </BrowserRouter>
