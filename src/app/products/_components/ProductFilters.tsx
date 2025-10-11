@@ -115,8 +115,8 @@ export function ProductFilters({ products, filters, onFiltersChange, onClearAll 
         onClick={() => setIsVisible(true)}
         className="lg:hidden fixed top-20 left-4 z-10"
       >
-        <Filter className="h-4 w-4 mr-2" />
-        Filtros {activeFiltersCount > 0 && `(${activeFiltersCount})`}
+  <Filter className="h-4 w-4 mr-2" />
+  Filters {activeFiltersCount > 0 && `(${activeFiltersCount})`}
       </Button>
     );
   }
@@ -127,7 +127,7 @@ export function ProductFilters({ products, filters, onFiltersChange, onClearAll 
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Filter className="h-5 w-5" />
-          <h2 className="font-semibold text-lg">Filtros</h2>
+          <h2 className="font-semibold text-lg">Filters</h2>
           {activeFiltersCount > 0 && (
             <span className="bg-black text-white text-xs px-2 py-1 rounded-full">
               {activeFiltersCount}
@@ -137,7 +137,7 @@ export function ProductFilters({ products, filters, onFiltersChange, onClearAll 
         <div className="flex gap-2">
           {activeFiltersCount > 0 && (
             <Button variant="ghost" size="sm" onClick={onClearAll}>
-              Limpiar
+              Clear
             </Button>
           )}
           <Button
@@ -161,14 +161,14 @@ export function ProductFilters({ products, filters, onFiltersChange, onClearAll 
           onCheckedChange={handleInStockChange}
         />
         <Label htmlFor="inStock" className="text-sm font-medium">
-          Solo productos disponibles
+          Only in-stock products
         </Label>
       </div>
 
       <Separator />
 
       {/* Category Filter */}
-      <FilterSection title="Categoría">
+  <FilterSection title="Category">
         {uniqueCategories.map(category => (
           <div key={category} className="flex items-center space-x-2">
             <Checkbox
@@ -184,7 +184,7 @@ export function ProductFilters({ products, filters, onFiltersChange, onClearAll 
       </FilterSection>
 
       {/* Brand Filter */}
-      <FilterSection title="Marca">
+  <FilterSection title="Brand">
         {uniqueBrands.map(brand => (
           <div key={brand} className="flex items-center space-x-2">
             <Checkbox
@@ -200,7 +200,7 @@ export function ProductFilters({ products, filters, onFiltersChange, onClearAll 
       </FilterSection>
 
       {/* Gender Filter */}
-      <FilterSection title="Género">
+  <FilterSection title="Gender">
         {uniqueGenders.map(gender => (
           <div key={gender} className="flex items-center space-x-2">
             <Checkbox
@@ -209,14 +209,14 @@ export function ProductFilters({ products, filters, onFiltersChange, onClearAll 
               onCheckedChange={(checked) => handleGenderChange(gender, checked as boolean)}
             />
             <Label htmlFor={`gender-${gender}`} className="text-sm capitalize cursor-pointer">
-              {gender === 'men' ? 'Hombre' : gender === 'women' ? 'Mujer' : 'Unisex'}
+              {gender === 'men' ? 'Men' : gender === 'women' ? 'Women' : 'Unisex'}
             </Label>
           </div>
         ))}
       </FilterSection>
 
       {/* Size Filter */}
-      <FilterSection title="Tallas">
+  <FilterSection title="Sizes">
         <div className="grid grid-cols-4 gap-2">
           {uniqueSizes.map(size => (
             <div key={size} className="flex items-center space-x-1">
@@ -234,7 +234,7 @@ export function ProductFilters({ products, filters, onFiltersChange, onClearAll 
       </FilterSection>
 
       {/* Price Range Filter */}
-      <FilterSection title="Precio">
+  <FilterSection title="Price">
         <div className="space-y-2">
           <div className="flex gap-2">
             <input
@@ -253,13 +253,13 @@ export function ProductFilters({ products, filters, onFiltersChange, onClearAll 
             />
           </div>
           <div className="text-xs text-gray-500">
-            Rango: ${Math.min(...products.map(p => p.price))} - ${Math.max(...products.map(p => p.price))}
+            Range: ${Math.min(...products.map(p => p.price))} - ${Math.max(...products.map(p => p.price))}
           </div>
         </div>
       </FilterSection>
 
       {/* Color Filter */}
-      <FilterSection title="Colores">
+      <FilterSection title="Colors">
         <div className="grid grid-cols-2 gap-2">
           {uniqueColors.map(color => (
             <div key={color} className="flex items-center space-x-2">

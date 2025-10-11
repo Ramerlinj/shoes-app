@@ -9,7 +9,10 @@ import { Badge } from "@/components/ui/badge";
 interface ProductCardProps {
   product: Product;
   onQuickView?: (product: Product) => void;
-  onAddToCart?: (product: Product) => void;
+  onAddToCart?: (
+    product: Product,
+    options?: { size?: number; color?: string; imageIndex?: number }
+  ) => void;
   onToggleWishlist?: (productId: string) => void;
   isInWishlist?: boolean;
 }
@@ -25,6 +28,7 @@ export function ProductCard({
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const currentImage = product.images[selectedColorIndex] || product.thumbnail;
+  const selectedColor = product.colors[selectedColorIndex]?.name;
   const isLowStock = product.stock > 0 && product.stock <= 5;
 
   return (
@@ -58,12 +62,12 @@ export function ProductCard({
         <div className="absolute top-3 left-3 flex flex-col gap-1">
           {product.stock === 0 && (
             <Badge variant="destructive" className="text-xs">
-              Agotado
+              Sold out
             </Badge>
           )}
           {isLowStock && (
             <Badge variant="secondary" className="text-xs bg-orange-100 text-orange-800">
-              Últimos {product.stock}
+              Only {product.stock} left
             </Badge>
           )}
         </div>
@@ -75,7 +79,7 @@ export function ProductCard({
             onClick={() => onQuickView?.(product)}
             className="bg-white text-black hover:bg-gray-100"
           >
-            Vista rápida
+            Quick view
           </Button>
         </div>
       </div>
@@ -111,7 +115,7 @@ export function ProductCard({
         {product.colors.length > 0 && (
           <div className="space-y-2">
             <p className="text-xs text-gray-600">
-              {product.colors.length} color{product.colors.length !== 1 ? 'es' : ''}
+              {product.colors.length} color{product.colors.length !== 1 ? 's' : ''}
             </p>
             <div className="flex gap-1">
               {product.colors.slice(0, 4).map((color, index) => (
@@ -148,18 +152,24 @@ export function ProductCard({
           
           <Button
             size="sm"
-            onClick={() => onAddToCart?.(product)}
+            onClick={() =>
+              onAddToCart?.(product, {
+                size: product.sizes[0],
+                color: selectedColor,
+                imageIndex: selectedColorIndex,
+              })
+            }
             disabled={product.stock === 0}
             className="bg-black text-white hover:bg-gray-800 disabled:opacity-50"
           >
-            {product.stock === 0 ? 'Agotado' : 'Agregar'}
+            {product.stock === 0 ? 'Sold out' : 'Add to cart'}
           </Button>
         </div>
 
         {product.sizes.length > 0 && (
           <div className="text-xs text-gray-500 pt-1">
-            Tallas: {product.sizes.slice(0, 3).join(', ')}
-            {product.sizes.length > 3 && ` +${product.sizes.length - 3} más`}
+            Sizes: {product.sizes.slice(0, 3).join(', ')}
+            {product.sizes.length > 3 && ` +${product.sizes.length - 3} more`}
           </div>
         )}
       </div>

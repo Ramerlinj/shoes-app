@@ -11,11 +11,13 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Badge } from "@/components/ui/badge";
 import type { Product, FilterState, SortOption } from "@/types/product";
 import productsData from "@/data/products.json";
+import { useCart } from "@/hooks/useCart";
 
 const ITEMS_PER_PAGE = 12;
 
 export default function ProductsPage() {
   const products = productsData as Product[];
+  const { addItem } = useCart();
   
   const [searchTerm, setSearchTerm] = useState("");
   const [filters, setFilters] = useState<FilterState>({
@@ -145,13 +147,33 @@ export default function ProductsPage() {
     setQuantity(1);
   }, []);
 
-  const handleAddToCart = useCallback((product: Product) => {
-    console.log('Add to cart:', product, 'Size:', selectedSize, 'Quantity:', quantity);
-    // Cerrar el modal después de agregar al carrito
-    if (quickViewProduct) {
-      setQuickViewProduct(null);
-    }
-  }, [selectedSize, quantity, quickViewProduct]);
+  const handleAddToCart = useCallback(
+    (
+      product: Product,
+      options?: { size?: number; color?: string; quantity?: number; imageIndex?: number }
+    ) => {
+      const chosenSize = options?.size ?? product.sizes[0];
+      const chosenColor = options?.color ?? product.colors[options?.imageIndex ?? 0]?.name;
+      const imageIndex = options?.imageIndex ?? 0;
+      const image = product.images[imageIndex] || product.thumbnail;
+      const quantityToAdd = options?.quantity ?? 1;
+
+      addItem(
+        {
+          productId: product.id,
+          name: product.name,
+          price: product.price,
+          currency: product.currency,
+          image,
+          size: chosenSize,
+          color: chosenColor,
+          stock: product.stock,
+        },
+        quantityToAdd,
+      );
+    },
+    [addItem],
+  );
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -160,9 +182,9 @@ export default function ProductsPage() {
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
             <div>
-              <h1 className="text-3xl font-bold">Productos</h1>
+              <h1 className="text-3xl font-bold">Zapatería RD catalog</h1>
               <p className="text-gray-600 mt-1">
-                Descubre nuestra colección completa de calzado deportivo y urbano
+                Discover our full lineup of sport and lifestyle sneakers curated for the Dominican Republic
               </p>
             </div>
             
@@ -171,7 +193,7 @@ export default function ProductsPage() {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
               <Input
                 type="text"
-                placeholder="Buscar productos..."
+                placeholder="Search sneakers..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10 pr-10"
@@ -234,13 +256,13 @@ export default function ProductsPage() {
                   <Search className="mx-auto h-12 w-12" />
                 </div>
                 <h3 className="text-lg font-medium text-gray-900 mb-2">
-                  No se encontraron productos
+                  No products found
                 </h3>
                 <p className="text-gray-500 mb-4">
-                  Intenta ajustar los filtros o la búsqueda
+                  Try adjusting the filters or your search.
                 </p>
                 <Button onClick={clearAllFilters} variant="outline">
-                  Limpiar filtros
+                  Clear filters
                 </Button>
               </div>
             ) : (
@@ -270,7 +292,7 @@ export default function ProductsPage() {
                       onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                       disabled={currentPage === 1}
                     >
-                      Anterior
+                      Previous
                     </Button>
                     
                     <div className="flex gap-1">
@@ -302,7 +324,7 @@ export default function ProductsPage() {
                       onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
                       disabled={currentPage === totalPages}
                     >
-                      Siguiente
+                      Next
                     </Button>
                   </div>
                 )}
@@ -350,7 +372,7 @@ export default function ProductsPage() {
                       >
                         <img
                           src={image}
-                          alt={`Vista ${index + 1}`}
+                          alt={`View ${index + 1}`}
                           className="w-full h-full object-cover"
                         />
                       </button>
@@ -406,8 +428,8 @@ export default function ProductsPage() {
                       className="text-xs px-3 py-1"
                     >
                       {quickViewProduct.stock > 10 
-                        ? `${quickViewProduct.stock} en stock` 
-                        : `Solo ${quickViewProduct.stock} disponibles`
+                        ? `${quickViewProduct.stock} in stock` 
+                        : `Only ${quickViewProduct.stock} pairs left`
                       }
                     </Badge>
                   </div>
@@ -456,7 +478,7 @@ export default function ProductsPage() {
                 {quickViewProduct.sizes.length > 0 && (
                   <div className="space-y-3">
                     <h4 className="font-semibold text-gray-900 text-base">
-                      Talla {selectedSize && <span className="text-dodger-blue-900">({selectedSize})</span>}
+                  Size {selectedSize && <span className="text-dodger-blue-900">({selectedSize})</span>}
                     </h4>
                     <div className="grid grid-cols-6 gap-2.5">
                       {quickViewProduct.sizes.map((size) => (
@@ -478,7 +500,7 @@ export default function ProductsPage() {
 
                 {/* Quantity */}
                 <div>
-                  <h4 className="font-semibold mb-3 text-gray-900 text-base">Cantidad</h4>
+                  <h4 className="font-semibold mb-3 text-gray-900 text-base">Quantity</h4>
                   <div className="flex items-center gap-4">
                     <div className="flex items-center border rounded-lg bg-white shadow-sm">
                       <button
@@ -498,7 +520,7 @@ export default function ProductsPage() {
                       </button>
                     </div>
                     <span className="text-sm text-gray-500 font-medium">
-                      Máximo: {quickViewProduct.stock}
+                      Max: {quickViewProduct.stock}
                     </span>
                   </div>
                 </div>
@@ -506,7 +528,7 @@ export default function ProductsPage() {
                 {/* Tags */}
                 {quickViewProduct.tags.length > 0 && (
                   <div className="space-y-2">
-                    <h4 className="font-semibold text-gray-900 text-base">Características</h4>
+                    <h4 className="font-semibold text-gray-900 text-base">Highlights</h4>
                     <div className="flex flex-wrap gap-2">
                       {quickViewProduct.tags.map((tag) => (
                         <Badge key={tag} variant="outline" className="text-xs border-dodger-blue-200 text-dodger-blue-800">
@@ -521,16 +543,24 @@ export default function ProductsPage() {
                 <div className="space-y-4 pt-5">
                   <div className="flex flex-wrap gap-4">
                     <Button
-                      onClick={() => handleAddToCart(quickViewProduct)}
+                      onClick={() => {
+                        handleAddToCart(quickViewProduct, {
+                          size: selectedSize ?? quickViewProduct.sizes[0],
+                          color: quickViewProduct.colors[selectedColorIndex]?.name,
+                          quantity,
+                          imageIndex: selectedColorIndex,
+                        });
+                        setQuickViewProduct(null);
+                      }}
                       disabled={quickViewProduct.stock === 0 || !selectedSize}
                       className="flex-1 min-w-[220px] bg-dodger-blue-900 hover:bg-dodger-blue-800 text-white py-5 text-lg font-semibold transition-all duration-200 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <ShoppingCart className="mr-2 h-5 w-5" />
                       {quickViewProduct.stock === 0 
-                        ? 'Agotado' 
+                        ? 'Sold out' 
                         : !selectedSize 
-                          ? 'Selecciona una talla' 
-                          : `Agregar al carrito - $${(quickViewProduct.price * quantity).toFixed(2)}`
+                          ? 'Select a size' 
+                          : `Add to cart - $${(quickViewProduct.price * quantity).toFixed(2)}`
                       }
                     </Button>
                     
@@ -552,7 +582,7 @@ export default function ProductsPage() {
                     onClick={() => setQuickViewProduct(null)}
                     className="w-full border-gray-300 text-gray-600 hover:bg-gray-50 py-3 text-base"
                   >
-                    Continuar comprando
+                    Continue shopping
                   </Button>
                 </div>
               </div>

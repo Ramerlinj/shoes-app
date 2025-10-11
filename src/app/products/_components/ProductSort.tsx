@@ -26,11 +26,11 @@ export function ProductSort({
 }: ProductSortProps) {
   
   const sortOptions = [
-    { value: 'newest' as SortOption, label: 'Más recientes' },
-    { value: 'popular' as SortOption, label: 'Más populares' },
-    { value: 'price-low' as SortOption, label: 'Precio: menor a mayor' },
-    { value: 'price-high' as SortOption, label: 'Precio: mayor a menor' },
-    { value: 'rating' as SortOption, label: 'Mejor valorados' },
+    { value: 'newest' as SortOption, label: 'Newest' },
+    { value: 'popular' as SortOption, label: 'Most popular' },
+    { value: 'price-low' as SortOption, label: 'Price: low to high' },
+    { value: 'price-high' as SortOption, label: 'Price: high to low' },
+    { value: 'rating' as SortOption, label: 'Top rated' },
   ];
 
   return (
@@ -38,11 +38,11 @@ export function ProductSort({
       {/* Results Count and Pagination Info */}
       <div className="flex items-center gap-4">
         <span className="text-sm text-gray-600">
-          {totalResults} resultado{totalResults !== 1 ? 's' : ''}
+          {totalResults} result{totalResults !== 1 ? 's' : ''}
         </span>
         {totalPages > 1 && (
           <span className="text-sm text-gray-500">
-            Página {currentPage} de {totalPages}
+            Page {currentPage} of {totalPages}
           </span>
         )}
       </div>
@@ -51,7 +51,7 @@ export function ProductSort({
       <div className="flex items-center gap-3">
         {/* Sort Dropdown */}
         <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-600 hidden sm:block">Ordenar por:</span>
+          <span className="text-sm text-gray-600 hidden sm:block">Sort by:</span>
           <Select value={sortBy} onValueChange={onSortChange}>
             <SelectTrigger className="w-48">
               <SelectValue />
