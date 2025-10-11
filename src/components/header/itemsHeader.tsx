@@ -1,6 +1,10 @@
+"use client"
+
 import { NavLink } from "react-router-dom"
+import { useAuth } from "@/hooks/useAuth"
 
 function ItemsHeader() {
+  const { user } = useAuth()
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     `rounded-full px-3 py-1 text-sm font-medium transition-all ${
       isActive
@@ -21,6 +25,13 @@ function ItemsHeader() {
             Sneakers
           </NavLink>
         </li>
+        {user?.role === "admin" && (
+          <li>
+            <NavLink to="/admin" className={linkClass}>
+              Admin
+            </NavLink>
+          </li>
+        )}
         <li>
           <NavLink to="/about" className={linkClass}>
             About us

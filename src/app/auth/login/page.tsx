@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { AuthLayout } from "../_components/AuthLayout"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
+import { PasswordInput } from "@/components/ui/password-input"
 import { Button } from "@/components/ui/button"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { useAuth } from "@/hooks/useAuth"
@@ -83,9 +84,8 @@ function LoginPage() {
           <Label htmlFor="password" className="text-sm font-semibold text-gray-700">
             Password
           </Label>
-          <Input
+          <PasswordInput
             id="password"
-            type="password"
             placeholder="••••••••"
             value={form.password}
             onChange={(event) => setForm((prev) => ({ ...prev, password: event.target.value }))}

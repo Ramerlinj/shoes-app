@@ -6,6 +6,7 @@ import ProductsPage from "./app/products/page"
 import LoginPage from "./app/auth/login/page"
 import RegisterPage from "./app/auth/register/page"
 import ForgotPasswordPage from "./app/auth/forgot-password/page"
+import AdminPage from "./app/admin/page"
 import CheckoutPage from "./app/checkout/page"
 import Header from "./components/header/header"
 import Footer from "./components/footer/footer"
@@ -29,6 +30,7 @@ createRoot(document.getElementById("root")!).render(
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+                <Route path="/admin" element={<AdminPage />} />
               </Routes>
             </div>
             <Footer />

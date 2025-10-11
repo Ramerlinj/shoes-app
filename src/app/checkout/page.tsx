@@ -150,7 +150,9 @@ export default function CheckoutPage() {
 
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-2">
-                  <Label htmlFor="fullName">Full name</Label>
+                  <Label htmlFor="fullName" className="mb-2 block">
+                    Full name
+                  </Label>
                   <Input
                     id="fullName"
                     name="fullName"
@@ -162,8 +164,10 @@ export default function CheckoutPage() {
                     disabled={isNameLocked}
                   />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                <div className="space-x-4">
+                  <Label htmlFor="email" className="mb-2 block">
+                    Email
+                  </Label>
                   <Input
                     id="email"
                     name="email"
@@ -179,7 +183,9 @@ export default function CheckoutPage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="address">Delivery address</Label>
+                <Label className="m-2 block" htmlFor="address">
+                  Delivery address
+                </Label>
                 <Textarea
                   id="address"
                   name="address"
@@ -193,7 +199,9 @@ export default function CheckoutPage() {
 
               <div className="grid gap-4 md:grid-cols-3">
                 <div className="space-y-2">
-                  <Label htmlFor="city">City</Label>
+                  <Label className="m-2 block" htmlFor="city">
+                    City
+                  </Label>
                   <Input
                     id="city"
                     name="city"
@@ -204,7 +212,9 @@ export default function CheckoutPage() {
                   />
                 </div>
                 <div className="space-y-2 md:col-span-2">
-                  <Label htmlFor="country">Country</Label>
+                  <Label htmlFor="country" className="m-2 block">
+                    Country
+                  </Label>
                   <Input
                     id="country"
                     name="country"
@@ -218,7 +228,9 @@ export default function CheckoutPage() {
 
               <div className="grid gap-4 md:grid-cols-3">
                 <div className="space-y-2 md:col-span-2">
-                  <Label htmlFor="cardNumber">Card number</Label>
+                  <Label className="m-2 block" htmlFor="cardNumber">
+                    Card number
+                  </Label>
                   <Input
                     id="cardNumber"
                     name="cardNumber"
@@ -230,7 +242,9 @@ export default function CheckoutPage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="expiration">Expiration</Label>
+                  <Label htmlFor="expiration" className="mb-2 block">
+                    Expiration
+                  </Label>
                   <Input
                     id="expiration"
                     name="expiration"
@@ -242,7 +256,9 @@ export default function CheckoutPage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="cvv">CVV</Label>
+                  <Label htmlFor="cvv" className="mb-2 block">
+                    CVV
+                  </Label>
                   <Input
                     id="cvv"
                     name="cvv"

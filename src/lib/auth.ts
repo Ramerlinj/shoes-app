@@ -1,15 +1,44 @@
 import bcrypt from "bcryptjs"
-import type { AuthCredentials, RegistrationPayload, User } from "@/types/user"
+import type { AuthCredentials, RegistrationPayload, User, UserRole } from "@/types/user"
 
-const API_BASE_URL = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000/api"
+export const API_BASE_URL = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000/api"
 const USERS_ENDPOINT = `${API_BASE_URL}/users`
 const SESSION_STORAGE_KEY = "zapateria_active_user"
 
 const isBrowser = typeof window !== "undefined"
 
+function normalizeRole(value: unknown): UserRole {
+  if (typeof value === "string") {
+    const normalized = value.trim().toLowerCase()
+    if (["admin", "administrator", "administrador", "adm"].includes(normalized)) {
+      return "admin"
+    }
+  }
+
+  if (typeof value === "number") {
+    if (value === 1) return "admin"
+  }
+
+  if (typeof value === "boolean") {
+    return value ? "admin" : "user"
+  }
+
+  return "user"
+}
+
+function normalizeUser(user: User): User {
+  return {
+    ...user,
+    role: normalizeRole(user.role),
+    email: user.email?.trim().toLowerCase() ?? user.email,
+    name: user.name ?? user.firstName,
+    surname: user.surname ?? user.lastName,
+  }
+}
+
 function persistSession(user: User) {
   if (!isBrowser) return
-  window.localStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(user))
+  window.localStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(normalizeUser(user)))
 }
 
 function clearSession() {
@@ -22,7 +51,8 @@ function readSession(): User | null {
   const raw = window.localStorage.getItem(SESSION_STORAGE_KEY)
   if (!raw) return null
   try {
-    return JSON.parse(raw) as User
+  const stored = JSON.parse(raw) as User
+  return normalizeUser(stored)
   } catch (error) {
     console.error("No se pudo leer la sesión almacenada", error)
     return null
@@ -31,7 +61,7 @@ function readSession(): User | null {
 
 function parseUserList(payload: unknown): User[] {
   if (Array.isArray(payload)) {
-    return payload as User[]
+  return (payload as User[]).map(normalizeUser)
   }
 
   if (
@@ -40,7 +70,7 @@ function parseUserList(payload: unknown): User[] {
     "data" in payload &&
     Array.isArray((payload as { data: unknown }).data)
   ) {
-    return (payload as { data: User[] }).data
+  return (payload as { data: User[] }).data.map(normalizeUser)
   }
 
   throw new Error("Formato de respuesta inesperado al obtener usuarios")
@@ -57,9 +87,9 @@ function parseUser(payload: unknown): User {
     "data" in payload &&
     (payload as { data: unknown }).data
   ) {
-    return (payload as { data: User }).data
+    return normalizeUser((payload as { data: User }).data)
   }
-
+  return normalizeUser(payload as User)
   return payload as User
 }
 
@@ -70,20 +100,32 @@ function normalizeHash(hash: string): string {
   return hash
 }
 
-async function fetchUsers(): Promise<User[]> {
-  const response = await fetch(USERS_ENDPOINT, {
-    headers: { "Content-Type": "application/json" },
-  })
+export async function fetchUsers(): Promise<User[]> {
+  try {
+    const response = await fetch(USERS_ENDPOINT, {
+      headers: { "Content-Type": "application/json" },
+    })
 
-  if (!response.ok) {
-    throw new Error("No se pudo obtener la lista de usuarios")
+    if (!response.ok) {
+      throw new Error("No se pudo obtener la lista de usuarios")
+    }
+
+    const data = await response.json()
+    return parseUserList(data)
+  } catch (error) {
+    if (error instanceof TypeError) {
+      throw new Error(
+        "No se pudo conectar con el servidor de usuarios. Asegúrate de que la API esté en ejecución.",
+      )
+    }
+
+    throw error instanceof Error
+      ? error
+      : new Error("No se pudo obtener la lista de usuarios por un error desconocido")
   }
-
-  const data = await response.json()
-  return parseUserList(data)
 }
 
-async function postUser(body: unknown): Promise<User> {
+export async function postUser(body: unknown): Promise<User> {
   const response = await fetch(USERS_ENDPOINT, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -99,7 +141,7 @@ async function postUser(body: unknown): Promise<User> {
   return parseUser(data)
 }
 
-async function updateUser(userId: string | number, body: unknown): Promise<User> {
+export async function updateUser(userId: string | number, body: unknown): Promise<User> {
   const response = await fetch(`${USERS_ENDPOINT}/${userId}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
@@ -113,6 +155,18 @@ async function updateUser(userId: string | number, body: unknown): Promise<User>
 
   const data = await response.json()
   return parseUser(data)
+}
+
+export async function deleteUser(userId: string | number): Promise<void> {
+  const response = await fetch(`${USERS_ENDPOINT}/${userId}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  })
+
+  if (!response.ok) {
+    const message = await response.text()
+    throw new Error(message || "No se pudo eliminar el usuario")
+  }
 }
 
 export interface AuthResponse {
@@ -161,15 +215,16 @@ export async function authenticateUser(credentials: AuthCredentials): Promise<Au
       return { success: false, message: "Usuario no encontrado" }
     }
 
-  const hashedPassword = user.password ? normalizeHash(user.password) : ""
-  const passwordOk = await bcrypt.compare(credentials.password, hashedPassword)
+    const hashedPassword = user.password ? normalizeHash(user.password) : ""
+    const passwordOk = await bcrypt.compare(credentials.password, hashedPassword)
 
     if (!passwordOk) {
       return { success: false, message: "Contraseña incorrecta" }
     }
 
-    persistSession(user)
-    return { success: true, user }
+    const normalizedUser = normalizeUser(user)
+    persistSession(normalizedUser)
+    return { success: true, user: normalizedUser }
   } catch (error) {
     console.error(error)
     return {

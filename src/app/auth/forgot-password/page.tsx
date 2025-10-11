@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { AuthLayout } from "../_components/AuthLayout"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
+import { PasswordInput } from "@/components/ui/password-input"
 import { Button } from "@/components/ui/button"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { useAuth } from "@/hooks/useAuth"
@@ -126,9 +127,8 @@ function ForgotPasswordPage() {
             <Label htmlFor="newPassword" className="text-sm font-semibold text-gray-700">
               New password
             </Label>
-            <Input
+            <PasswordInput
               id="newPassword"
-              type="password"
               value={newPassword}
               onChange={(event) => setNewPassword(event.target.value)}
               placeholder="••••••••"
@@ -142,9 +142,8 @@ function ForgotPasswordPage() {
             <Label htmlFor="confirmPassword" className="text-sm font-semibold text-gray-700">
               Confirm password
             </Label>
-            <Input
+            <PasswordInput
               id="confirmPassword"
-              type="password"
               value={confirmPassword}
               onChange={(event) => setConfirmPassword(event.target.value)}
               placeholder="••••••••"
