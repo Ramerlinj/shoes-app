@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs"
 import type { AuthCredentials, RegistrationPayload, User, UserRole } from "@/types/user"
 
-export const API_BASE_URL = import.meta.env.VITE_API_URL ?? "http://api-shoes-production-ca89.up.railway.app/api"
+export const API_BASE_URL = import.meta.env.VITE_API_URL ?? "https://api-shoes-production-ca89.up.railway.app/api"
 const USERS_ENDPOINT = `${API_BASE_URL}/users`
 const SESSION_STORAGE_KEY = "zapateria_active_user"
 const TOKEN_STORAGE_KEY = "zapateria_auth_token"
@@ -104,9 +104,8 @@ function normalizeHash(hash: string): string {
 
 export async function fetchUsers(): Promise<User[]> {
   try {
-    const response = await fetch(USERS_ENDPOINT, {
-      headers: { "Content-Type": "application/json" },
-    })
+    // Avoid sending Content-Type on GET to prevent unnecessary CORS preflight
+    const response = await fetch(USERS_ENDPOINT)
 
     if (!response.ok) {
       throw new Error("No se pudo obtener la lista de usuarios")
@@ -232,9 +231,9 @@ export async function updateUser(userId: string | number, body: unknown): Promis
 }
 
 export async function deleteUser(userId: string | number): Promise<void> {
+  // Avoid sending Content-Type on DELETE to prevent unnecessary CORS preflight
   const response = await fetch(`${USERS_ENDPOINT}/${userId}`, {
     method: "DELETE",
-    headers: { "Content-Type": "application/json" },
   })
 
   if (!response.ok) {
