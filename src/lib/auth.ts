@@ -1,9 +1,11 @@
 import bcrypt from "bcryptjs"
 import type { AuthCredentials, RegistrationPayload, User, UserRole } from "@/types/user"
 
-export const API_BASE_URL = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000/api"
+// Use HTTPS by default to avoid preflight redirect failures (CORS blocks redirects on preflight)
+export const API_BASE_URL = import.meta.env.VITE_API_URL ?? "https://api-shoes-production-ca89.up.railway.app/api"
 const USERS_ENDPOINT = `${API_BASE_URL}/users`
 const SESSION_STORAGE_KEY = "zapateria_active_user"
+const TOKEN_STORAGE_KEY = "zapateria_auth_token"
 
 const isBrowser = typeof window !== "undefined"
 
@@ -44,6 +46,7 @@ function persistSession(user: User) {
 function clearSession() {
   if (!isBrowser) return
   window.localStorage.removeItem(SESSION_STORAGE_KEY)
+  window.localStorage.removeItem(TOKEN_STORAGE_KEY)
 }
 
 function readSession(): User | null {
@@ -123,6 +126,78 @@ export async function fetchUsers(): Promise<User[]> {
       ? error
       : new Error("No se pudo obtener la lista de usuarios por un error desconocido")
   }
+}
+
+// Attempts to login against a backend auth endpoint. Supports common paths and response shapes.
+async function loginViaApi(credentials: AuthCredentials): Promise<AuthResponse> {
+  const candidates = [
+    `${API_BASE_URL}/login`,
+    `${API_BASE_URL}/auth/login`,
+  ]
+
+  for (const url of candidates) {
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: credentials.email, password: credentials.password }),
+      })
+
+      if (!res.ok) {
+        // If endpoint exists but credentials are wrong, surface a friendly message
+        if (res.status === 401 || res.status === 422) {
+          const text = await res.text()
+          return { success: false, message: text || "Credenciales inválidas" }
+        }
+        // Try next candidate on 404/405, etc.
+        continue
+      }
+
+      // Parse a few common response formats
+      const payload = await res.json().catch(() => ({}))
+
+      // Laravel Sanctum/Passport-like: { user, token } or { data: { user, token } }
+      const container = (payload && typeof payload === "object" && "data" in payload)
+        ? (payload as { data: unknown }).data as Record<string, unknown>
+        : (payload as Record<string, unknown>)
+
+      const userCandidate = (container?.user ?? container?.data) as unknown
+      const tokenCandidate = (container?.token ?? container?.access_token ?? container?.accessToken) as unknown
+
+      const parsedUser = userCandidate ? normalizeUser(userCandidate as User) : undefined
+
+      if (!parsedUser) {
+        // Some APIs return the user directly at top-level
+        if (payload && typeof payload === "object" && (payload as Record<string, unknown>).email) {
+          const directUser = normalizeUser(payload as User)
+          if (isBrowser) {
+            window.localStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(directUser))
+            if (typeof tokenCandidate === "string") {
+              window.localStorage.setItem(TOKEN_STORAGE_KEY, tokenCandidate)
+            }
+          }
+          return { success: true, user: directUser }
+        }
+        // If we reach here, response shape is unexpected; try next candidate
+        continue
+      }
+
+      if (isBrowser) {
+        window.localStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(parsedUser))
+        if (typeof tokenCandidate === "string") {
+          window.localStorage.setItem(TOKEN_STORAGE_KEY, tokenCandidate)
+        }
+      }
+
+      return { success: true, user: parsedUser }
+    } catch {
+      // Network error or invalid JSON for this candidate - try next
+      continue
+    }
+  }
+
+  // No working endpoint found
+  return { success: false, message: "No se encontró un endpoint de inicio de sesión en la API" }
 }
 
 export async function postUser(body: unknown): Promise<User> {
@@ -207,6 +282,13 @@ export async function registerUser(payload: RegistrationPayload): Promise<AuthRe
 
 export async function authenticateUser(credentials: AuthCredentials): Promise<AuthResponse> {
   try {
+    // 1) Prefer server-side authentication if available
+    const apiLogin = await loginViaApi(credentials)
+    if (apiLogin.success) {
+      return apiLogin
+    }
+
+    // 2) Fallback to client-side check against /users listing
     const email = credentials.email.trim().toLowerCase()
     const users = await fetchUsers()
     const user = users.find((item) => item.email?.toLowerCase() === email)
@@ -215,7 +297,15 @@ export async function authenticateUser(credentials: AuthCredentials): Promise<Au
       return { success: false, message: "Usuario no encontrado" }
     }
 
-    const hashedPassword = user.password ? normalizeHash(user.password) : ""
+    if (!user.password) {
+      return {
+        success: false,
+        message:
+          "La API de usuarios no expone la contraseña para validar. Configura un endpoint de login en el backend o define VITE_API_URL a una API que lo soporte.",
+      }
+    }
+
+    const hashedPassword = normalizeHash(user.password)
     const passwordOk = await bcrypt.compare(credentials.password, hashedPassword)
 
     if (!passwordOk) {
