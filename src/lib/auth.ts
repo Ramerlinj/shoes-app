@@ -1,8 +1,7 @@
 import bcrypt from "bcryptjs"
 import type { AuthCredentials, RegistrationPayload, User, UserRole } from "@/types/user"
 
-// Use HTTPS by default to avoid preflight redirect failures (CORS blocks redirects on preflight)
-export const API_BASE_URL = import.meta.env.VITE_API_URL ?? "https://api-shoes-production-ca89.up.railway.app/api"
+export const API_BASE_URL = import.meta.env.VITE_API_URL ?? "http://api-shoes-production-ca89.up.railway.app/api"
 const USERS_ENDPOINT = `${API_BASE_URL}/users`
 const SESSION_STORAGE_KEY = "zapateria_active_user"
 const TOKEN_STORAGE_KEY = "zapateria_auth_token"
