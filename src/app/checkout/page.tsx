@@ -89,13 +89,13 @@ export default function CheckoutPage() {
   // Load user's unified presets (details + card)
   useEffect(() => {
     const user = getCurrentUser();
-    if (!user?.id) return;
+    const userKey = (user?.id ?? user?.email) as string | number | undefined;
+    if (!userKey) return;
     let cancelled = false;
     (async () => {
       try {
         setIsLoadingPresets(true);
-        const userId = user.id as string | number;
-        const list = await Promise.resolve(fetchCheckoutPresets(userId));
+        const list = await Promise.resolve(fetchCheckoutPresets(userKey));
         if (!cancelled) setPresets(list);
       } finally {
         if (!cancelled) setIsLoadingPresets(false);
@@ -136,8 +136,12 @@ export default function CheckoutPage() {
 
       // Optionally save unified preset for logged-in users
       const currentUser = getCurrentUser();
-      if (savePreset && currentUser?.id) {
-        saveCheckoutPresetForUser(currentUser.id as string | number, {
+      const userKey = (currentUser?.id ?? currentUser?.email) as
+        | string
+        | number
+        | undefined;
+      if (savePreset && userKey) {
+        saveCheckoutPresetForUser(userKey, {
           fullName: form.fullName,
           email: form.email,
           address: form.address,
@@ -146,9 +150,7 @@ export default function CheckoutPage() {
           cardNumber: form.cardNumber,
           expiration: form.expiration,
         });
-        const list = await Promise.resolve(
-          fetchCheckoutPresets(currentUser.id as string | number)
-        );
+        const list = await Promise.resolve(fetchCheckoutPresets(userKey));
         setPresets(list);
       }
 
@@ -169,8 +171,12 @@ export default function CheckoutPage() {
     if (result.success) {
       // Optionally save unified preset for logged-in users
       const currentUser = getCurrentUser();
-      if (savePreset && currentUser?.id) {
-        saveCheckoutPresetForUser(currentUser.id as string | number, {
+      const userKey = (currentUser?.id ?? currentUser?.email) as
+        | string
+        | number
+        | undefined;
+      if (savePreset && userKey) {
+        saveCheckoutPresetForUser(userKey, {
           fullName: form.fullName,
           email: form.email,
           address: form.address,
@@ -179,9 +185,7 @@ export default function CheckoutPage() {
           cardNumber: form.cardNumber,
           expiration: form.expiration,
         });
-        const list = await Promise.resolve(
-          fetchCheckoutPresets(currentUser.id as string | number)
-        );
+        const list = await Promise.resolve(fetchCheckoutPresets(userKey));
         setPresets(list);
       }
       setOrderId(result.orderId ?? null);
@@ -442,11 +446,11 @@ export default function CheckoutPage() {
                   id="save-preset"
                   checked={savePreset}
                   onCheckedChange={(v) => setSavePreset(Boolean(v))}
-                  disabled={!getCurrentUser()?.id}
+                  disabled={!getCurrentUser()?.email}
                 />
                 <Label htmlFor="save-preset" className="text-sm text-slate-600">
                   Save these details and card for next time
-                  {!getCurrentUser()?.id ? (
+                  {!getCurrentUser()?.email ? (
                     <span className="ml-1 text-xs text-slate-400">
                       (sign in required)
                     </span>
